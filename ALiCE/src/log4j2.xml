@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" name="Alice">
+<Properties>
+<Property name="log-path">logs</Property>
+</Properties>
+  <Appenders>
+ 	  <RollingFile name="AliceLog" fileName="${log-path}/alice.log" filePattern="${log-path}/$${date:yyyy}/app-%d{MM-dd-yyyy}-%i.log.gz">
+     
+      <PatternLayout>
+        <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+      </PatternLayout>
+      
+      <Policies>
+        <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+      </Policies>
+      
+    </RollingFile>
+    
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{HH:mm:ss} [%t] %-5level %c{1.}: %msg%n"/>
+    </Console>
+    
+  </Appenders>
+  <Loggers>
+    <Root level="trace">
+      <AppenderRef ref="AliceLog"/>
+      <AppenderRef ref="Console"/>
+    </Root>
+  </Loggers>
+</Configuration>
+
+<!-- http://mycuteblog.com/log4j2-xml-configuration-example/ -->
+<!-- https://logging.apache.org/log4j/2.x/manual/appenders.html -->

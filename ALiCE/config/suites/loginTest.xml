@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite name="ALiCE 'Alive Check'" time-out="120000" verbose="2" > 
+
+	<listeners>
+		<listener class-name="de.metro.im.core.testframework.config.reporting.listener.CustomListener"/>
+	</listeners>
+	
+
+	<test name="Betty Alive Check" >
+		<classes>
+			<parameter name="_id" value="1100"/>
+			<class name="de.metro.im.core.testframework.tests.login.betty_login"/>
+		</classes> 
+	</test>
+	
+ 	<test name="Online Ordering Login Check" >
+		<classes> 
+			<parameter name="_id" value="100"/> 
+ 			<class name="de.metro.im.core.testframework.tests.login.onlineordering_login"/>
+		</classes>
+	</test>
+
+
+
+</suite> 
+
+
+      
